@@ -1,7 +1,9 @@
 # shopping_cart.py
 
 #from pprint import pprint
-import pandas as pd 
+import pandas as pd
+import datetime
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -49,7 +51,35 @@ while not a:
         print("I'm sorry, that is not a valid selection, please try again")
 
 
-
-
+print("--------------------------------------")
+print("RichieBubbs Grocery Emporium")
+print("WWW.RICHIEBUBBS-GROCERY-EMPORIUM.COM")
+print("--------------------------------------")
+# for date time I got some help from https://www.saltycrane.com/blog/2008/06/how-to-get-current-date-and-time-in/
+now = datetime.datetime.now()
+print("CHECKOUT AT: ", now)
+print("--------------------------------------")
+print("SELECTED PRODUCTS:")
+#> ---------------------------------
+#> GREEN FOODS GROCERY
+#> WWW.GREEN-FOODS-GROCERY.COM
+#> ---------------------------------
+#> CHECKOUT AT: 2019-06-06 11:31 AM
+#> ---------------------------------
+#> SELECTED PRODUCTS:
+#>  ... Chocolate Sandwich Cookies ($3.50)
+#>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
+#>  ... Dry Nose Oil ($21.99)
+#>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
+#>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
+#>  ... Mint Chocolate Flavored Syrup ($4.50)
+#>  ... Chocolate Fudge Layer Cake ($18.50)
+#> ---------------------------------
+#> SUBTOTAL: $61.24
+#> TAX: $5.35
+#> TOTAL: $66.59
+#> ---------------------------------
+#> THANKS, SEE YOU AGAIN SOON!
+#> ---------------------------------
 
 #print(products_list_csv)
