@@ -1,6 +1,7 @@
 # shopping_cart.py
 
 #from pprint import pprint
+import pandas as pd 
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -25,8 +26,30 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-print(products)
+#print(products)
 # pprint(products)
 
 # TODO: write some Python code here to produce the desired output
 
+products_list_csv = pd.read_csv('/Users/richiebubbs/Downloads/GitHub/shopping-cart/data/products.csv')
+acceptable_inputs = [i["id"] for i in products]
+#print(acceptable_inputs)
+
+#I constructed this while loop with help from https://realpython.com/python-while-loop/
+
+a = False
+while not a:
+    print("Please enter a product identifier (or enter 'done' to exit): ")
+    x = input()
+    if x != "done" and int(x) in acceptable_inputs:
+       a = False
+    elif x == "done":
+        a = True
+    else:
+        print("I'm sorry, that is not a valid selection, please try again")
+
+
+
+
+
+#print(products_list_csv)
