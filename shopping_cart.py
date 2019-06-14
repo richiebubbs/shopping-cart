@@ -34,26 +34,35 @@ products = [
 # TODO: write some Python code here to produce the desired output
 
 products_list_csv = pd.read_csv('/Users/richiebubbs/Downloads/GitHub/shopping-cart/data/products.csv')
-acceptable_inputs = [i["id"] for i in products]
+acceptable_inputs = [str(i["id"]) for i in products]
 selected_products = []
 #print(acceptable_inputs)
 
 #I constructed this while loop with help from https://realpython.com/python-while-loop/
+# I reconstructed the loop with some help form your screencast when I got stuck... 
+#https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
 
+total_price = 0
 a = False
 while not a:
     print("Please enter a product identifier (or enter 'DONE' to exit): ")
     x = input()
-    if x != "DONE" and int(x) in acceptable_inputs:
+    if x != "DONE" and x in acceptable_inputs:
        a = False
-       selected_products.append(x)
+       matching_products = [p for p in products if str(p["id"])==x]
+       matching_product = matching_products[0]
+       total_price = total_price + matching_product["price"]
+       print("..." + matching_product["name"] + "(" + str(matching_product["price"])+ ")")
+       #print(type(x))
     elif x == "DONE":
         a = True
     else:
         print("I'm sorry, that is not a valid selection, please try again")
+print("Total Price: ", total_price)
 
-print(selected_products)
+#print(selected_products) i did this to make sure that the list was being properly appended
 
+#breakpoint()
 
 print("--------------------------------------")
 print("RichieBubbs Grocery Emporium")
@@ -64,6 +73,22 @@ now = datetime.datetime.now()
 print("CHECKOUT AT: ", now)
 print("--------------------------------------")
 print("SELECTED PRODUCTS:")
+#for y in selected_products:
+#    matching_products_name = [p["name"] for p in products if p["id"]==y]
+#    matching_products_price =[p['price'] for p in products if p['id']==y]
+
+
+
+
+
+    
+
+
+#print(final_product_selection, final_product_price)
+
+
+#for p in selected_products:
+#    print("..." + products["id"] == p)
 #> ---------------------------------
 #> GREEN FOODS GROCERY
 #> WWW.GREEN-FOODS-GROCERY.COM
