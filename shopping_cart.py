@@ -76,7 +76,10 @@ print("WWW.RICHIEBUBBS-GROCERY-EMPORIUM.COM")
 print("                                      ")
 print("--------------------------------------")
 # for date time I got some help from https://www.saltycrane.com/blog/2008/06/how-to-get-current-date-and-time-in/
-now = datetime.datetime.now()
+# and for formatting: https://stackoverflow.com/questions/415511/how-to-get-the-current-time-in-python
+# https://stackoverflow.com/questions/31487732/simple-way-to-drop-milliseconds-from-python-datetime-datetime-object
+
+now = datetime.datetime.now().replace(microsecond=0)
 print("CHECKOUT AT: ", now)
 print("                                      ")
 print("--------------------------------------")
