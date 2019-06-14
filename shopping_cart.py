@@ -35,20 +35,24 @@ products = [
 
 products_list_csv = pd.read_csv('/Users/richiebubbs/Downloads/GitHub/shopping-cart/data/products.csv')
 acceptable_inputs = [i["id"] for i in products]
+selected_products = []
 #print(acceptable_inputs)
 
 #I constructed this while loop with help from https://realpython.com/python-while-loop/
 
 a = False
 while not a:
-    print("Please enter a product identifier (or enter 'done' to exit): ")
+    print("Please enter a product identifier (or enter 'DONE' to exit): ")
     x = input()
-    if x != "done" and int(x) in acceptable_inputs:
+    if x != "DONE" and int(x) in acceptable_inputs:
        a = False
-    elif x == "done":
+       selected_products.append(x)
+    elif x == "DONE":
         a = True
     else:
         print("I'm sorry, that is not a valid selection, please try again")
+
+print(selected_products)
 
 
 print("--------------------------------------")
