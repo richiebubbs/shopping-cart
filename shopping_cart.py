@@ -43,36 +43,62 @@ selected_products = []
 #https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
 
 total_price = 0
+selected_ids = []
 a = False
 while not a:
     print("Please enter a product identifier (or enter 'DONE' to exit): ")
     x = input()
     if x != "DONE" and x in acceptable_inputs:
        a = False
-       matching_products = [p for p in products if str(p["id"])==x]
-       matching_product = matching_products[0]
-       total_price = total_price + matching_product["price"]
-       print("..." + matching_product["name"] + "(" + str(matching_product["price"])+ ")")
+       #matching_products = [p for p in products if str(p["id"])==x]
+       #matching_product = matching_products[0]
+       #total_price = total_price + matching_product["price"]
+       selected_ids.append(x)
+       #print("..." + matching_product["name"] + "(" + str(matching_product["price"])+ ")")
        #print(type(x))
     elif x == "DONE":
         a = True
     else:
         print("I'm sorry, that is not a valid selection, please try again")
-print("Total Price: ", total_price)
+
+
+
+#print("Total Price: ", total_price)
 
 #print(selected_products) i did this to make sure that the list was being properly appended
 
 #breakpoint()
 
 print("--------------------------------------")
+print("                                      ")
 print("RichieBubbs Grocery Emporium")
 print("WWW.RICHIEBUBBS-GROCERY-EMPORIUM.COM")
+print("                                      ")
 print("--------------------------------------")
 # for date time I got some help from https://www.saltycrane.com/blog/2008/06/how-to-get-current-date-and-time-in/
 now = datetime.datetime.now()
 print("CHECKOUT AT: ", now)
+print("                                      ")
 print("--------------------------------------")
+print("                                      ")
 print("SELECTED PRODUCTS:")
+for y in selected_ids:
+    matching_products = [p for p in products if str(p["id"])==y]
+    matching_product = matching_products[0]
+    total_price = total_price + matching_product["price"]
+    print("..." + matching_product["name"] + "(" + str(matching_product["price"])+ ")")
+    tax = total_price * 0.08875
+    grand_ttl = total_price + tax
+print("--------------------------------------")
+print("                                      ")
+print("SUBTOTAL: " + str(total_price))
+print("TAX: " + str(tax))
+print("TOTAL: " + str(grand_ttl))
+print("                                      ")
+print("--------------------------------------")
+print("THANK YOU, COME AGAIN!")
+print("--------------------------------------")
+
 #for y in selected_products:
 #    matching_products_name = [p["name"] for p in products if p["id"]==y]
 #    matching_products_price =[p['price'] for p in products if p['id']==y]
