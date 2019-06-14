@@ -85,15 +85,20 @@ print("SELECTED PRODUCTS:")
 for y in selected_ids:
     matching_products = [p for p in products if str(p["id"])==y]
     matching_product = matching_products[0]
+    price_usd = "{0:.2f}".format(matching_product["price"])
+    
     total_price = total_price + matching_product["price"]
-    print("..." + matching_product["name"] + "(" + str(matching_product["price"])+ ")")
+    ttl_price_usd = "{0:.2f}".format(total_price)
+    print("..." + matching_product["name"] + "($" + str(price_usd)+ ")")
     tax = total_price * 0.08875
+    tax_price_usd = "{0:.2f}".format(tax)
     grand_ttl = total_price + tax
+    grand_ttl_price_usd = "{0:.2f}".format(grand_ttl)
 print("--------------------------------------")
 print("                                      ")
-print("SUBTOTAL: " + str(total_price))
-print("TAX: " + str(tax))
-print("TOTAL: " + str(grand_ttl))
+print("SUBTOTAL: $" + str(ttl_price_usd))
+print("TAX: $" + str(tax_price_usd))
+print("TOTAL: $" + str(grand_ttl_price_usd))
 print("                                      ")
 print("--------------------------------------")
 print("THANK YOU, COME AGAIN!")
