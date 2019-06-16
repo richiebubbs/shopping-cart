@@ -97,18 +97,27 @@ print("                                      ")
 print("--------------------------------------")
 print("                                      ")
 print("SELECTED PRODUCTS:")
-for y in selected_ids:
-    matching_products = [p for p in products if str(p["id"])==y]
-    matching_product = matching_products[0]
-    #price_usd = "{0:.2f}".format(matching_product["price"])
-    price_usd = "{0:.2f}".format(matching_product["price"])    
-    total_price = total_price + matching_product["price"]
-    ttl_price_usd = "{0:.2f}".format(total_price)
-    print("..." + matching_product["name"] + "($" + str(price_usd)+ ")")
-    tax = total_price * 0.08875
-    tax_price_usd = "{0:.2f}".format(tax)
-    grand_ttl = total_price + tax
-    grand_ttl_price_usd = "{0:.2f}".format(grand_ttl)
+if selected_ids == []:
+        total_price = 0.00
+        tax = 0.00
+        grand_ttl_price_usd = 0.00
+        ttl_price_usd = 0.00
+        tax_price_usd = 0.00
+        ttl_price_usd = 0.00
+else:
+    for y in selected_ids:
+        matching_products = [p for p in products if str(p["id"])==y]
+        matching_product = matching_products[0]
+        #price_usd = "{0:.2f}".format(matching_product["price"])
+        price_usd = "{0:.2f}".format(matching_product["price"])    
+        total_price = total_price + matching_product["price"]
+        ttl_price_usd = "{0:.2f}".format(total_price)
+        print("..." + matching_product["name"] + "($" + str(price_usd)+ ")")
+        tax = total_price * 0.08875
+        tax_price_usd = "{0:.2f}".format(tax)
+        grand_ttl = total_price + tax
+        grand_ttl_price_usd = "{0:.2f}".format(grand_ttl)
+    
     
 print("--------------------------------------")
 print("                                      ")
