@@ -70,6 +70,7 @@ while not a:
 #print(selected_products) i did this to make sure that the list was being properly appended
 
 #breakpoint()
+# time delay help from https://www.cyberciti.biz/faq/python-sleep-command-syntax-example/
 time.sleep(1)
 print("                                      ")
 print("Here is your receipt")
